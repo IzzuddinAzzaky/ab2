@@ -16,7 +16,7 @@ find /home/profaskes/klinik -type d \( -name "views" -o -name "uploads" -o -name
     
     # Tentukan nama file ZIP dengan format nama sesuai dengan yang Anda inginkan dan menyimpannya di folder tujuan yang sesuai dengan tanggal hari ini
     jam_waktu=$(date +\%H\%M\%S)
-    nama_zip="$tujuan_utama/$folder1\_$jam_waktu.zip"
+    nama_zip="$tujuan_utama/$folder1\_$jam_waktu"
     
     # Buat file ZIP dari folder "views" dan isi folder "views" akan tetap ada di dalamnya saat diekstrak
     (cd "$(dirname "$sumber_folder")" && zip -r "$nama_zip" "$(basename "$sumber_folder")")
