@@ -13,11 +13,10 @@ fi
 find /home/profaskes/klinik -type d \( -name "views" -o -name "uploads" -o -name "images" \) | while read -r sumber_folder; do
     # Mendapatkan dua nama path terakhir dari path folder sumber
     folder1=$(basename "$(dirname "$sumber_folder")")
-    folder2="views"
     
     # Tentukan nama file ZIP dengan format nama sesuai dengan yang Anda inginkan dan menyimpannya di folder tujuan yang sesuai dengan tanggal hari ini
     jam_waktu=$(date +\%H\%M\%S)
-    nama_zip="$tujuan_utama/$folder1\_$folder2\_$jam_waktu.zip"
+    nama_zip="$tujuan_utama/$folder1\_$jam_waktu.zip"
     
     # Buat file ZIP dari folder "views" dan isi folder "views" akan tetap ada di dalamnya saat diekstrak
     (cd "$(dirname "$sumber_folder")" && zip -r "$nama_zip" "$(basename "$sumber_folder")")
